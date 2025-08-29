@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Regular */
+@font-face {
+  font-family: 'NotoSans-regular';
+  src: url('assets/fonts/static/NotoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'NotoSans-medium';
+  src: url('assets/fonts/static/NotoSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'NotoSans-bold';
+  src: url('assets/fonts/static/NotoSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  /* colors */
+  --color-neutral-900: hsl(227, 75%, 14%);
+  --color-neutral-800: hsl(226, 25%, 17%);
+  --color-neutral-700: hsl(225, 23%, 24%);
+  --color-neutral-600: hsl(226, 11%, 37%);
+  --color-neutral-300: hsl(0, 0%, 78%);
+  --color-neutral-200: hsl(217, 61%, 90%);
+  --color-neutral-100: hsl(0, 0%, 93%);
+  --color-neutral-0: hsl(200, 60%, 99%);
+  --color-red-400: hsl(3, 86%, 64%);
+  --color-red-500: hsl(3, 71%, 56%);
+  --color-red-700: hsl(3, 77%, 44%);
+  --color-light-gradient1: hsl(215, 68%, 95%);
+  --color-light-gradient2: hsl(182, 51%, 96%);
+  --color-dark-gradient1: hsl(225, 65%, 6%);
+  --color-dark-gradient2: hsl(225, 66%, 15%);
+
+  /* gradient */
+  --background-image-light-gradient: linear-gradient(
+    180deg,
+    var(--color-light-gradient1) 0%,
+    var(--color-light-gradient2) 100%
+  );
+  --background-image-dark-gradient: linear-gradient(
+    180deg,
+    var(--color-dark-gradient1) 0%,
+    var(--color-dark-gradient2) 100%
+  );
+
+  /* padding */
+  --spacing-padding-y: clamp(2em, 2vw, 3em);
+  --spacing-padding-x: clamp(1em, 6vw, 7em);
+
+  /* font family */
+  --font-notosans: 'NotoSans', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-gradient grid place-items-center;
+  }
+}
+
+.focus-border {
+  @apply focus:border-2 focus:border-neutral-100 focus:outline-2 focus:outline-red-400 dark:focus:border-neutral-900;
+}
